@@ -16,4 +16,9 @@ class Point{
 	public double innerdot(Point p) {
 		return p.x * x + p.y * y;
 	}
+    	// rotate d degree
+	public Point rotate(double d) {
+		double theta = d / 180.0 * Math.PI;
+		return new Point(Math.cos(theta) * x  - Math.sin(theta) * y, Math.sin(theta) * x + Math.cos(theta) * y);
+	}
 }
