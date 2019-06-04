@@ -6,6 +6,6 @@
 
 ## Todoそのうち
 - Permutation，Combinationなどなど……
-- Prime Factorizeとか
-- ユークリッドの拡張互除法とか
+- オイラーのφ関数
+- ユークリッドの拡張互除法
 - 行列演算（必要……か？）
