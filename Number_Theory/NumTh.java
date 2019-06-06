@@ -44,16 +44,22 @@ class NumTh{
 		}
 		return factorize;
 	}
+	static long Perm(long n, long k) {
+		if(n < k) return 0;
+		long ans = 1;
+		for(long i = 0; i < k; i++) {
+			ans *= (n - i);
+			ans %= mod;
+		}
+		return ans;
+	}
 }
 public class Main{
 	public static void main(String[] args){
 		Scanner sc=new Scanner(System.in);
 		while(sc.hasNext()){
-			long n = sc.nextLong();
-			LinkedList<Long> fact = NumTh.fact(n);
-			System.out.print(n+":");
-			for(long num : fact) System.out.print(" "+num);
-			System.out.println();
+			long n = sc.nextLong(), k = sc.nextLong();
+			System.out.println(NumTh.Perm(k, n));
 		}
 	}
 }
