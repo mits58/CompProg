@@ -10,3 +10,4 @@
 ## 作りたい（必要ではない）
 - Skew Heap
 - Lefitest Heap
+- AVL tree ? Self-balanced Binary Search Tree

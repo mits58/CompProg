@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 class Point{
 	double x, y;
 	public Point(double _x, double _y){
@@ -16,7 +14,19 @@ class Point{
 	public double innerdot(Point p) {
 		return p.x * x + p.y * y;
 	}
-    	// rotate d degree
+	public double cross(Point p) {
+		return x * p.y - y * p.x;
+	}
+	public double norm() {
+		return x * x + y * y;
+	}
+	public double abs() {
+		return Math.sqrt(norm());
+	}
+	public double dist(Point a){
+		return this.sub(a).abs();
+	}
+	// rotate d degree
 	public Point rotate(double d) {
 		double theta = d / 180.0 * Math.PI;
 		return new Point(Math.cos(theta) * x  - Math.sin(theta) * y, Math.sin(theta) * x + Math.cos(theta) * y);
