@@ -1,9 +1,10 @@
 # データ構造
 ## あるもの（検証済み）
 - 素集合管理データ構造（UnionFind）
+- Segment Tree for RMQ
 
 ## 作りたい（必要）
-- Segment Tree
+- Segment Tree の変種とか
 - BIT
 - 平方分割……
 
