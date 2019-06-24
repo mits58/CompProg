@@ -16,6 +16,7 @@ class NumTh{
 	static int LCM(int x, int y) {
 		return (int)LCM((long)x, (long)y);
 	}
+    // $a^x$ mod m
 	static long pow(long a, long x, long m){
 		if(x == 1) return a % m;
 		else if(x % 2 == 0) return pow((a * a) % m, x / 2, m) % m;
@@ -53,13 +54,51 @@ class NumTh{
 		}
 		return ans;
 	}
+	static long Choose(long n, long k) {
+		long res = 1;
+		for(long i = n; i >= n - k + 1; i--) {
+			res *= i; res %= mod;
+			res *= inv(k - n + i, mod); res %= mod;
+		}
+		return res % mod;
+	}
+	static long overlapChoose(long n, long k) {
+		return Choose(n + k - 1, k);
+	}
+	static long inv(long a, long mod) {
+		if(GCD(a, mod) != 1) return -1; // there is no inverse
+		x = 0; y = 0;
+		extGCD(a, mod, 0);
+		return (x + mod) % mod;
+	}
+	static long eulerphi(long n) {
+		long tmp = n; long res = n;
+		for(int i = 2; tmp > 1; i++) {
+			if(tmp % i == 0) {
+				res = res * (i - 1) / i;
+				while(tmp % i == 0) tmp /= i;
+			}
+		}
+		return res;
+	}
+	/* Calculate the solution of ax + by = gcd(a, b) */
+	// Usage: extgcd(a, b, 0)
+	static long x = 0, y = 0;
+	static long extGCD(long a, long b, int c) {
+		long d = a;
+		if(b != 0) {
+			d = extGCD(b, a % b, (c + 1) % 2);
+			if(c == 0) y -= (a / b) * x;
+			else x -= (a / b) * y;
+		}else {
+			x = (c == 0) ? 1 : 0;
+			y = (c == 0) ? 0 : 1;
+		}
+		return d;
+	}
 }
 public class Main{
 	public static void main(String[] args){
 		Scanner sc=new Scanner(System.in);
-		while(sc.hasNext()){
-			long n = sc.nextLong(), k = sc.nextLong();
-			System.out.println(NumTh.Perm(k, n));
-		}
 	}
 }
