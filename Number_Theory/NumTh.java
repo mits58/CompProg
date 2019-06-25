@@ -96,9 +96,27 @@ class NumTh{
 		}
 		return d;
 	}
-}
-public class Main{
-	public static void main(String[] args){
-		Scanner sc=new Scanner(System.in);
+    // Generate Permutation of n elements
+    static List<List<Integer>> genPermutations(int n){
+		if(n == 1) {
+			List<Integer> elem = new ArrayList<Integer>();
+			elem.add(1);
+			List<List<Integer>> ans = new ArrayList<List<Integer>>();
+			ans.add(elem);
+			return ans;
+		}
+		List<List<Integer>> recPerm = genPermutations(n - 1); // (n - 1)!
+		List<List<Integer>> ans = new ArrayList<List<Integer>>();
+		for(List<Integer> perm : recPerm) {
+			for(int i = 0; i < n; i++) {
+				List<Integer> newperm = new ArrayList<Integer>(n);
+				for(int j = 0; j < n; j++) newperm.add(0);
+				perm.add(i, n);
+				Collections.copy(newperm, perm);
+				ans.add(newperm);
+				perm.remove(i);
+			}
+		}
+		return ans;
 	}
 }

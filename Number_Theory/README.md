@@ -6,6 +6,7 @@
 - Permutation, Combination
 - 拡張互除法
 - オイラーの$\phi$関数
+- Permutation生成
 
 
 ## Todo
