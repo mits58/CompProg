@@ -1,4 +1,4 @@
-class Point{
+class Point implements Comparable<Point>{
 	double x, y;
 	public Point(double _x, double _y){
 		x = _x;
@@ -30,5 +30,9 @@ class Point{
 	public Point rotate(double d) {
 		double theta = d / 180.0 * Math.PI;
 		return new Point(Math.cos(theta) * x  - Math.sin(theta) * y, Math.sin(theta) * x + Math.cos(theta) * y);
+	}
+	public int compareTo(Point o) {
+		if(Math.abs(x - o.x) < Geo.eps) return (int)Math.signum(y - o.y);
+		return (int)Math.signum(x - o.x);
 	}
 }
