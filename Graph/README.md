@@ -4,7 +4,10 @@
   - Dijkstra
   - BellmanFord
   - Floyd-Warshall
-- Minimum Spanning Tree
+- For Tree
+  - Minimum Spanning Tree
+  - Height
+  - Diameter
 
 ## Todo
 - AOJのグラフライブラリを全部実装
